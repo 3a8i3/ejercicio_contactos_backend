@@ -170,6 +170,37 @@ app.put( '/contacto/:id', ( req, res ) =>{
     } );
 });
 
+// DELETE con parametro id
+app.delete( '/contacto/:id', ( req, res )=>{
+    let id = req.params.id
+    let delCont = {
+        activo:false
+    }
+
+    Contacto.findByIdAndUpdate( 
+        id,
+        delCont,
+        ( err, contacto )=>{
+            
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                })
+            }
+            if ( !contacto ){
+                return res.status(400).json({
+                    ok: false,
+                    err
+                })
+            }
+            res.json({
+                ok: true,
+                contacto
+            });		
+
+    })
+});
 
 
 module.exports = app;
