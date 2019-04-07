@@ -130,6 +130,45 @@ app.get( '/contacto/buscar/:termino', (req, res) => {
  * </GETS>
  */
 
+ // PUT con parametro id
+app.put( '/contacto/:id', ( req, res ) =>{
+    let id = req.params.id;
+    let body = req.body;
+    let newCont = {
+        nombre: body.nombre,
+        apellido: body.apellido,
+        telefono: body.telefono,
+        email: body.email,
+        direccion: body.direccion
+    }
+  
+    let options = { select: 'nombre apellido telefono email direccion'};
+  
+    Contacto.findByIdAndUpdate( 
+        id, 
+        newCont, 
+        options, 
+        ( err, contacto ) => {
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                })
+            }
+            if ( !contacto ){
+                return res.status(400).json({
+                    ok: false,
+                    err:{
+                        message: 'No se encontró el id'
+                    }
+                })
+            }
+            res.json({
+                ok: true,
+                contacto
+            });		
+    } );
+});
 
 
 
