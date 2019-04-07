@@ -1,9 +1,12 @@
 require('./config/config.js');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
 
 const app = express();
+
+app.use(cors())
 
 // configuración de body parse
 // parse application/x-www-form-urlencoded
