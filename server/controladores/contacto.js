@@ -44,8 +44,10 @@ app.post('/contacto', (req, res) => {
 
 //GET all
 app.get('/contacto', (req, res) => {
-	
-	Contacto.find({ activo:true }, 'nombre apellido telefono email direccion')
+    
+    let options = 'nombre apellido telefono email direccion';    
+
+	Contacto.find( { activo:true }, options )
 		.sort('nombre')      //orden
 		.exec( (err, contactos) => {
 			if ( err ) {
@@ -73,8 +75,11 @@ app.get('/contacto/:id', (req, res) => {
     
     let id = req.params.id;
     
-    Contacto.find({ $and: [{_id:{$eq:id}, activo: { $eq: true } }] },
-        'nombre apellido telefono email direccion',
+    let options = 'nombre apellido telefono email direccion';
+
+    Contacto.find(
+        { $and: [{_id:{$eq:id}, activo: { $eq: true } }] },
+        options,
         ( err, contacto ) => {
     
             if ( err ) {
@@ -100,6 +105,9 @@ app.get( '/contacto/buscar/:termino', (req, res) => {
     /** Se crea una expresión regular basada en el término y 
      * se le pasa como valor condisional */
     let regex = new RegExp(termino, 'i');
+
+    let options = 'nombre apellido telefono email direccion';
+
     Contacto.find({
         $and:[{
             $or:[
@@ -108,7 +116,7 @@ app.get( '/contacto/buscar/:termino', (req, res) => {
             ]}, 
             { activo:true }
         ]},
-        'nombre apellido telefono email direccion' )
+        options )
         .sort('nombre')
         .exec( (err, contactos) => {
             if ( err ) {
@@ -142,12 +150,9 @@ app.put( '/contacto/:id', ( req, res ) =>{
         direccion: body.direccion
     }
   
-    let options = { select: 'nombre apellido telefono email direccion'};
-  
     Contacto.findByIdAndUpdate( 
         id, 
         newCont, 
-        options, 
         ( err, contacto ) => {
             if (err) {
                 return res.status(500).json({
