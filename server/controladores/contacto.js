@@ -43,7 +43,7 @@ app.post('/contacto', (req, res) => {
  */
 
 //GET all
-app.get('/contacto', (req, res) => {
+app.get('/contactos', (req, res) => {
     
     let options = 'nombre apellido telefono email direccion';    
 
@@ -99,7 +99,7 @@ app.get('/contacto/:id', (req, res) => {
 });
 
 // GET Buscar por nombre o telefono
-app.get( '/contacto/buscar/:termino', (req, res) => {
+app.get( '/contactos/buscar/:termino', (req, res) => {
     let termino = req.params.termino;
     
     /** Se crea una expresión regular basada en el término y 
