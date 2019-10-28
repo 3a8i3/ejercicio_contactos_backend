@@ -10,10 +10,10 @@
 
 	<h3>Caracteristicas</h3>
 	<ul>
-		<li><b>Crea un contacto:</b> petición de tipo POST, necesita la url y los datos del contacto a ser creado, devuelve el objeto creado en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>https://taller3-api-contacto.herokuapp.com/contacto/{datos}</code></li>
-		<li><b>Recupera todos los contactos guardados:</b> petición de tipo GET, necesita la url, devuelve un array de objetos en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>get("https://taller3-api-contacto.herokuapp.com/contactos", datos)</code></li>
-		<li><b>Recupera un contacto por su id:</b> petición de tipo GET, necesita la url y el id del contacto a ser recuperado, devuelve un objeto en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>get("https://taller3-api-contacto.herokuapp.com/contacto/{id}", datos)</code></li>
-		<li><b>Actualiza los datos de un contacto:</b> petición de tipo PUT, necesita la url y el id del contacto a ser actualizado, devuelve un objeto en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>put("https://taller3-api-contacto.herokuapp.com/contacto/{id}", datos)</code></li>
+		<li><b>Crea un contacto:</b> petición de tipo POST, necesita la url y los datos del contacto a ser creado, devuelve el objeto creado en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>https://taller3-api-contacto.herokuapp.com/contacto [,datos]</code></li>
+		<li><b>Recupera todos los contactos guardados:</b> petición de tipo GET, necesita la url, devuelve un array de objetos en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>https://taller3-api-contacto.herokuapp.com/contactos</code></li>
+		<li><b>Recupera un contacto por su id:</b> petición de tipo GET, necesita la url y el id del contacto a ser recuperado, devuelve un objeto en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>https://taller3-api-contacto.herokuapp.com/contacto/{id}</code></li>
+		<li><b>Actualiza los datos de un contacto:</b> petición de tipo PUT, necesita la url y el id del contacto a ser actualizado, devuelve un objeto en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>https://taller3-api-contacto.herokuapp.com/contacto/{id}[, datos]</code></li>
 		<li><b>Elimina un contacto:</b> petición de tipo DELETE, necesita la url y el id del contacto a ser eliminado, devuelve un objeto en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>https://taller3-api-contacto.herokuapp.com/contacto/{id}</code></li>
 		<li><b>Filtra contactos:</b> petición de tipo GET, necesita la url y el término por el cual filtrar, devuelve un array de objetos en caso de suceso de lo contrario devuelve un error.<br>Ejemplo: <code>https://taller3-api-contacto.herokuapp.com/contactos/buscar/{termino}</code></li>
 
