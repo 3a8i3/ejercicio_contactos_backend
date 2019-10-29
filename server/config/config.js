@@ -1,5 +1,5 @@
 // Puerto
-process.env.PORT = process.env.PORT || 8080;
+process.env.PORT = process.env.PORT || 3000;
 
 /**
  * Configuración del entorno

@@ -48,7 +48,7 @@ app.get('/contactos', (req, res) => {
     let options = 'nombre apellido telefono email direccion';    
 
 	Contacto.find( { activo:true }, options )
-		.sort('nombre')      //orden
+		.sort({'_id': 'desc'})      //orden
 		.exec( (err, contactos) => {
 			if ( err ) {
 				return res.status(400).json({
@@ -117,7 +117,7 @@ app.get( '/contactos/buscar/:termino', (req, res) => {
             { activo:true }
         ]},
         options )
-        .sort('nombre')
+        .sort({'_id': 'desc'})
         .exec( (err, contactos) => {
             if ( err ) {
                 return res.status(500).json({
