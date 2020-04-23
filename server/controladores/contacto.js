@@ -1,8 +1,10 @@
 const express = require('express');
 const Contacto = require('../model/contacto');
 const _ = require('underscore');
+const cors = require('cors');
 
 const app= express();
+app.use(cors());
 
 
 
