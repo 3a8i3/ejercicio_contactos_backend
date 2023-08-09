@@ -26,12 +26,22 @@ app.use( require('./controladores/index') );
 
 
 /* ####### Conexion a db ####### */
-mongoose.connect(process.env.URLDB, (err, res) => {
-	if ( err ) { throw err; }
+mongoose.connect(
+  process.env.URLDB,
+  // se le pasa estas configuaraciones para evitar warnings
+  // al ejebutar el servidor
+  { 
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    'useCreateIndex': true
+  },
+  (err, res) => {
+    if ( err ) { throw err; }
 
-	console.log('Base de datos online');
+    console.log('Base de datos online');
 
-});
+  }
+);
 
 
 // activa el server
